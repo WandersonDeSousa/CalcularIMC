@@ -14,10 +14,24 @@
         return peso / (altura * altura);      
     }
 
-    var nome = prompt("Informe seu nome");
-    var alturaInformada = prompt(nome + ", Informe sua altura");
-    var pesoInformado = prompt(nome + ", Informe seu peso");
-    var imc = calculaImc(alturaInformada, pesoInformado);
+
+        var apresentacao = alert("Olá, vamos calcular o seu IMC?");
+        var nome = prompt("Informe seu nome");
+        var alturaInformada = prompt("Ótimo, " + nome + ", Informe sua altura");
+        var pesoInformado = prompt(nome + ", Informe seu peso");
+        var imc = calculaImc(alturaInformada, pesoInformado);
+
+      
+
+    while(isNaN(alturaInformada) && isNaN(pesoInformado)) {
+        alert("Informação incorreta. Por favor, insira apenas números.");
+       
+        var alturaInformada = prompt(nome + ", Informe sua altura");
+        var pesoInformado = prompt(nome + ", Informe seu peso");
+        var imc = calculaImc(alturaInformada, pesoInformado);
+
+        }
+
     
     mostra(nome + ", O seu IMC é " + Math.round(imc));
 
@@ -25,12 +39,12 @@
         mostra("O seu IMC está abaixo do recomendado!")
     }
 
-    if(imc > 35) {
+    if(imc > 25) {
         mostra("O seu IMC está acima do recomendado!");
     }
 
-    if(imc >= 18.5 && imc <= 35) {
-        mostra("O seu IMC está ideal!");
+    if(imc >= 18.5 && imc <= 24.9) {
+        mostra("O seu IMC está dentro do recomendado!");
     }
 
     mostra("FIM!");
